@@ -1,6 +1,4 @@
-# webpack-boilerplate
-
-##Hello Work & Co!
+#Hello Work & Co!
 Here's a small shopping application.
 Built using Webpack, SCSS, ES6, and Angular JS
 
