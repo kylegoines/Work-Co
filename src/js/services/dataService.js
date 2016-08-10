@@ -3,7 +3,7 @@ import data from './dataModel.js';
 import Product from '../classes/product.js'
 //dont forget to pass reference, not value :3
 
-var dataService = function() {
+var dataService = function( authService ) {
 
 	var _store = {
 		items: data
@@ -13,47 +13,7 @@ var dataService = function() {
 		items: []
 	};
 
-	var _toast = {
-		error: ''
-	}
-
-	////////////////////////////////////////////////////////////////////////////////////////////
-
-	function _storeAuth( product ) {
-
-		var hasEmpty = false;
-
-		// see if any property is empty, null or not a num
-		for (var member in product) {
-			if ( product[member] === '' || product[member] === undefined ) {
-
-				_toast.error = 'Values have been left undefined!';
-				hasEmpty = true;
-			}
-		}
-
-		if ( hasEmpty ) {
-			return false;
-		}
-
-		var filteredArray = _store.items.filter( function( comparatorItem ) {
-			if ( comparatorItem.name === product.name ) {
-				_toast.error = `${comparatorItem.name} is already been created!`;
-				return comparatorItem;
-			}
-		});
-
-		// if name exists, better would be an ID
-		if ( filteredArray.length != 0 ) {
-			return false;
-		}
-
-		_toast.error = ''
-		return true;
-
-	}
-
-
+	var _toast = authService.toast
 
 	////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -61,7 +21,7 @@ var dataService = function() {
 
 		var product = new Product( collection );
 
-		if ( _storeAuth( product ) ) {
+		if ( authService.storeAuth( product, _store ) ) {
 			_store.items.push( product );
 		}
 
