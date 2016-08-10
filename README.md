@@ -1,5 +1,5 @@
 # webpack-boilerplate
-webpackin'
+Angular shopping application
 
 ##command
 `webpack-dev-server --hot --inline`

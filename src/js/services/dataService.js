@@ -1,6 +1,6 @@
 // for brevity import the data from this file
 import data from './dataModel.js';
-
+import Product from '../classes/product.js'
 //dont forget to pass reference, not value :3
 
 var dataService = function( ) {
@@ -15,8 +15,22 @@ var dataService = function( ) {
 
 	////////////////////////////////////////////////////////////////////////////////////////////
 
-	function addItem( obj ){
-		_store.items.push( {name: 'aaaa'} )
+	function storeAuth( itemObject ) {
+
+		return true;
+
+	}
+
+	function addItemtoStore( collection ) {
+
+		var product = new Product( collection );
+
+		if ( storeAuth() ) {
+			
+			_store.items.push( product );	
+
+		}
+
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,9 +113,10 @@ var dataService = function( ) {
 	return {
 		store: _store,
 		cart: _cart,
-		add: addItem,
+		add: addItemtoStore,
 		addToCart: addToCart,
-		removeFromCart: removeFromCart
+		removeFromCart: removeFromCart,
+		addItemtoStore : addItemtoStore
 	}
 }
 
