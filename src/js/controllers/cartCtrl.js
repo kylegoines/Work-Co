@@ -6,10 +6,18 @@ var cartCtrl = function( $scope, dataService ) {
 		dataService.removeFromCart( i );
 	}
 
+	$scope.totalItems = function(){
+		var total = 0;
+
+		$scope.cart.items.forEach(function(i){
+			total += i.quanity
+		})
+		return total;
+	}
+
 	$scope.totaPrice = function(){
 		var total = 0;
 
-		console.log($scope.cart.items)
 		$scope.cart.items.forEach(function(i){
 
 			total += i.price * i.quanity
@@ -20,7 +28,6 @@ var cartCtrl = function( $scope, dataService ) {
 		// not viable in production
 		return total.toFixed(2);
 	}
-
 
 }
 
