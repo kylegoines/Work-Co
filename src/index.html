@@ -5,26 +5,9 @@
 </head>
 <body>
 
-	<div ng-controller="cartCtrl">
+	<div class="store" ng-controller="storeCtrl">
 
-		<h2>Cart</h2>
-		<p>i have {{cart.items.length}} items</p>
-		<ul>
-			<li ng-repeat="item in cart.items track by $index">
-				{{item.name}} | {{item.quanity}}
-				<br>
-				<a href="" ng-click="removeFromCart(item, $index)">Remove Item</a>
-			</li>
-		</ul>
-		<p>Total: ${{totaPrice()}}</p>
-
-	</div>
-
-	<hr>
-
-	<div ng-controller="storeCtrl">
-
-		<p>Im the store list</p>
+		<h2>Store</h2>
 
 		<ul>
 			<li ng-repeat="item in store.items">
@@ -49,8 +32,26 @@
 				<option>5</option>
 	    	</select>
 	    	<input type="number" ng-model="itemPrice" min="1" placeholder="price">
+	    	<small class="error"> {{toast.error}}</small>
 	    	<a href="" ng-click="addNewItem()">Add Item</a>
 		</form>
+
+	</div>
+
+	<div class="cart" ng-controller="cartCtrl">
+
+		<h2>Cart</h2>
+		<p>You have {{totalItems()}} items in cart.</p>
+		<ul>
+			<li ng-repeat="item in cart.items track by $index">
+				<div class="info">
+				Name: {{item.name}} 
+				<p>Quanity: {{item.quanity}}</p>
+				</div>
+				<a href="" ng-click="removeFromCart(item, $index)">Remove Item</a>
+			</li>
+		</ul>
+		<p>Total: ${{totaPrice()}}</p>
 
 	</div>
 
