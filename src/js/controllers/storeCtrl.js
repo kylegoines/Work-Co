@@ -20,7 +20,14 @@ var storeCtrl = function( $scope, dataService ) {
 		//send off data
 		dataService.addItemtoStore( productObj );
 
+		//reset
+		$scope.itemName = '';
+		$scope.itemQuanity = '';
+		$scope.itemPrice = '';
+
 	}
+
+	$scope.toast = dataService.toast;
 }
 
 export default storeCtrl;
