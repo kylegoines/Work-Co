@@ -13,11 +13,12 @@ var storeCtrl = function( $scope, dataService ) {
 
 		var productObj = {
 			name: $scope.itemName,
-			quanity: parseInt($scope.itemQuanity, 10),
-			price: parseInt($scope.itemPrice, 10),
+			quanity: parseInt( $scope.itemQuanity, 10 ),
+			price: parseInt( $scope.itemPrice, 10 ),
 		}
+
 		//send off data
-		dataService.addItemtoStore(productObj)
+		dataService.addItemtoStore( productObj );
 
 	}
 }

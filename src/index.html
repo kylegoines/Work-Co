@@ -16,6 +16,7 @@
 				<a href="" ng-click="removeFromCart(item, $index)">Remove Item</a>
 			</li>
 		</ul>
+		<p>Total: ${{totaPrice()}}</p>
 
 	</div>
 
@@ -23,7 +24,7 @@
 
 	<div ng-controller="storeCtrl">
 
-		<p ng-click="add()">im the store list {{num.items}}</p>
+		<p>Im the store list</p>
 
 		<ul>
 			<li ng-repeat="item in store.items">

@@ -3,7 +3,14 @@ class Product {
 	constructor( obj ) {
 
 		//destructure of brevity
-		const {name, price, quanity} = obj;
+		let {name, price, quanity} = obj;
+
+		if ( isNaN( quanity ) ) {
+			quanity = '';
+		}
+		if ( isNaN( price ) ) {
+			price = '';
+		}
 
 		this.name = name;
 		this.quanity = quanity,

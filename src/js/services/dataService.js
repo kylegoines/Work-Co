@@ -17,14 +17,22 @@ var dataService = function( ) {
 
 	function _storeAuth( product ) {
 
-		if ( product.name === '' || product.name === undefined ) {
+		var hasEmpty = false;
+
+		// see if any property is empty, null or not a num
+		for (var member in product) {
+			if ( product[member] === '' || product[member] === undefined ) {
+				hasEmpty = true;
+			}
+		}
+
+		if ( hasEmpty ) {
 			return false;
 		}
 
 		var filteredArray = _store.items.filter( function( comparatorItem ) {
 			if ( comparatorItem.name === product.name ) {
 				return comparatorItem;
-
 			}
 		});
 
@@ -43,7 +51,7 @@ var dataService = function( ) {
 
 		var product = new Product( collection );
 
-		if ( _storeAuth(product) ) {
+		if ( _storeAuth( product ) ) {
 			_store.items.push( product );
 		}
 
