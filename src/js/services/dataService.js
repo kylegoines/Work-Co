@@ -15,20 +15,36 @@ var dataService = function( ) {
 
 	////////////////////////////////////////////////////////////////////////////////////////////
 
-	function storeAuth( itemObject ) {
+	function _storeAuth( product ) {
+
+		if ( product.name === '' || product.name === undefined ) {
+			return false;
+		}
+
+		var filteredArray = _store.items.filter( function( comparatorItem ) {
+			if ( comparatorItem.name === product.name ) {
+				return comparatorItem;
+
+			}
+		});
+
+		// if name exists, better would be an ID
+		if ( filteredArray.length != 0 ) {
+			return false;
+		}
 
 		return true;
 
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////
+
 	function addItemtoStore( collection ) {
 
 		var product = new Product( collection );
 
-		if ( storeAuth() ) {
-			
-			_store.items.push( product );	
-
+		if ( _storeAuth(product) ) {
+			_store.items.push( product );
 		}
 
 	}
@@ -113,7 +129,6 @@ var dataService = function( ) {
 	return {
 		store: _store,
 		cart: _cart,
-		add: addItemtoStore,
 		addToCart: addToCart,
 		removeFromCart: removeFromCart,
 		addItemtoStore : addItemtoStore
