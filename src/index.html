@@ -1,9 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="shoppingApp">
 <head>
-	<title></title>
+	<title>Hello Work & Co</title>
 </head>
 <body>
-	hi there
+
+	<div ng-controller="cartCtrl">
+
+		<h2>Cart</h2>
+		<p>i have {{cart.items.length}} items</p>
+		<ul>
+			<li ng-repeat="item in cart.items track by $index">
+				{{item.name}} | {{item.quanity}}
+				<br>
+				<a href="" ng-click="removeFromCart(item, $index)">Remove Item</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<hr>
+
+	<div ng-controller="storeCtrl">
+
+		<p ng-click="add()">im the store list {{num.items}}</p>
+
+		<ul>
+			<li ng-repeat="item in store.items">
+				{{item.name}} | {{item.price}} | Quanity: <span>{{item.quanity}}</span>
+				<br>
+				<a href="" ng-click="addToCart(item)" ng-class="{empty: item.quanity === 0}"  >Add Item to cart</a>
+			</li>
+		</ul>
+
+		<hr>
+
+		<h2>Add Items</h2>
+
+		<form>
+			<input type="text" name="" placeholder="name" ng-model="itemName">
+			<select ng-model="itemQuanity">
+				<option value="" disabled selected>Select your quanity</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+	    	</select>
+	    	<input type="number" ng-model="itemPrice" min="1" placeholder="price">
+	    	<a href="" ng-click="addNewItem()">Add Item</a>
+		</form>
+
+	</div>
+
+	<script src="http://localhost:8080/bundle.js"></script>
+
 </body>
 </html>
