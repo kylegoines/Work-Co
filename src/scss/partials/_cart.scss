@@ -1,0 +1,28 @@
+.cart{
+	width: 40%;
+	background: $grey;
+	padding: $spacePadding;
+	overflow: auto;
+	margin: 0;
+	float: left;
+	border-radius: 10px;
+
+	li{
+		overflow: auto;
+		padding: $spacePadding 0;
+		font-size:14px;
+		border-top: 1px solid black;
+		&:last-of-type{
+			border-bottom: 1px solid black;
+		}
+
+		a{
+			margin-top: 0;
+			float: right;
+		}
+
+		.info{
+			float: left;
+		}
+	}
+}

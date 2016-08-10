@@ -1,0 +1,32 @@
+*{
+	box-sizing: border-box;
+}
+
+body,html{
+	height: 100%;
+}
+
+ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+a{
+	background: $purple;
+	color: white;
+	display: inline-block;
+	padding: 5px 8px;
+	font-size: 13px;
+	margin: 10px 0;
+	text-decoration: none;
+	border-radius: 3px;
+}
+
+
+//states
+.empty{
+	pointer-events: none;
+	background: grey;
+	color: white;
+}
+

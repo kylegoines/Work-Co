@@ -1,6 +1,8 @@
 // for brevity import the data from this file
 import data from './dataModel.js';
+
 import Product from '../classes/product.js'
+
 //dont forget to pass reference, not value :3
 
 var dataService = function( authService ) {

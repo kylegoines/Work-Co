@@ -1,0 +1,18 @@
+form{
+	input{
+		display: block;
+		margin: 5px 0;
+	}
+
+	select{
+		width: 160px;
+		padding: 2px;
+	}
+
+	.error{
+		height: 20px;
+		color: red;
+		display: block;
+		font-weight: 700;
+	}
+}
